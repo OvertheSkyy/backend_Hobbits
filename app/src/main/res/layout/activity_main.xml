@@ -4,39 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp"
-    tools:context=".chat_gpt_integration">
-
-    <EditText
-        android:id="@+id/askGPT"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="Enter what hobby you wish to build"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btnSubmit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Build Now"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/askGPT"
-        app:layout_constraintVertical_bias="0.045"
-        tools:layout_editor_absoluteX="0dp" />
+    tools:context="com.test.environment.MainActivity">
 
     <TextView
-        android:id="@+id/GPTResponse"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:hint="GPT response"
-        android:textSize="50dp"
+        android:text="Hello World!"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnSubmit"
-        app:layout_constraintVertical_bias="0.0"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
