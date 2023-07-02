@@ -1,15 +1,17 @@
-package com.test.environment
+package com.shiretech.hobbits
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.TextView
 import android.content.Intent
+import android.widget.Button
+import android.widget.ImageView
 import android.widget.Toast
+import com.shiretech.hobbits.R
 import com.google.firebase.auth.FirebaseAuth
-import com.test.environment.databinding.CreateAccountBinding
-
+import com.shiretech.hobbits.databinding.CreateAccountBinding
 
 class Create_Account : AppCompatActivity() {
-
     private lateinit var binding: CreateAccountBinding
     private lateinit var firebaseAuth: FirebaseAuth
 
@@ -46,8 +48,8 @@ class Create_Account : AppCompatActivity() {
                                 startActivity(intent)
                             } else {
                                 Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
+                            }
                         }
-                    }
                 } else {
                     Toast.makeText(this, "Passwords do not match.", Toast.LENGTH_SHORT).show()
                 }

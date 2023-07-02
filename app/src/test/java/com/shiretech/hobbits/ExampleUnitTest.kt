@@ -1,4 +1,4 @@
-package com.test.environment
+package com.shiretech.hobbits
 
 import org.junit.Test
 

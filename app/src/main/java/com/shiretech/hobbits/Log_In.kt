@@ -1,4 +1,4 @@
-package com.test.environment
+package com.shiretech.hobbits
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,8 +6,8 @@ import android.widget.Button
 import android.content.Intent
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
-import com.test.environment.R
-import com.test.environment.databinding.LoginBinding
+import com.shiretech.hobbits.R
+import com.shiretech.hobbits.databinding.LoginBinding
 
 class Log_In : AppCompatActivity() {
 
@@ -29,7 +29,7 @@ class Log_In : AppCompatActivity() {
 
                 firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener{
                     if (it.isSuccessful){
-                        val intent = Intent(this, MainActivity::class.java)
+                        val intent = Intent(this, Home::class.java)
                         startActivity(intent)
                     } else {
                         Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
@@ -42,6 +42,10 @@ class Log_In : AppCompatActivity() {
         binding.CreateAccButton.setOnClickListener {
             val createAccountIntent = Intent(this, Create_Account::class.java)
             startActivity(createAccountIntent)
+        }
+        binding.redirectforgotPassword.setOnClickListener {
+            val intent = Intent(this, Forgot_Passwrod::class.java)
+            startActivity(intent)
         }
     }
 }

@@ -1,8 +1,8 @@
-package com.test.environment
+package com.shiretech.hobbits
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.test.environment.R
+import com.shiretech.hobbits.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -1,11 +1,12 @@
-package com.test.environment
+package com.shiretech.hobbits
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.content.Intent
-import com.test.environment.R
+import com.shiretech.hobbits.R
 
 class GetStarted : AppCompatActivity() {
 
