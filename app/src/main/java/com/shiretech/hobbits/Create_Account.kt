@@ -2,13 +2,10 @@ package com.shiretech.hobbits
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.TextView
 import android.content.Intent
-import android.widget.Button
-import android.widget.ImageView
 import android.widget.Toast
-import com.shiretech.hobbits.R
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 import com.shiretech.hobbits.databinding.CreateAccountBinding
 
 class Create_Account : AppCompatActivity() {
@@ -42,10 +39,21 @@ class Create_Account : AppCompatActivity() {
                 if (password == confirmpassword) {
 
                     firebaseAuth.createUserWithEmailAndPassword(email, password)
-                        .addOnCompleteListener {
+                        .addOnCompleteListener(this) {
                             if (it.isSuccessful) {
-                                val intent = Intent(this, Log_In::class.java)
-                                startActivity(intent)
+
+                                val user = FirebaseAuth.getInstance().currentUser
+                                val usersRef = FirebaseDatabase.getInstance().getReference("users")
+                                usersRef.child(user?.uid?:"").child("name").setValue(name)
+
+                                firebaseAuth.currentUser?.sendEmailVerification()?.addOnSuccessListener {
+                                        val intent = Intent(this, Log_In::class.java)
+                                        Toast.makeText(this, "Please Verify your Email", Toast.LENGTH_SHORT).show()
+                                        startActivity(intent)
+                                    }
+                                    ?.addOnFailureListener{
+                                        Toast.makeText( this, it.toString(), Toast.LENGTH_SHORT).show()
+                                    }
                             } else {
                                 Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
                             }
